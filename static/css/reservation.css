@@ -1,0 +1,378 @@
+/* Set the background color for the entire page */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+	color: black;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.headerbar {
+	display: none;
+}
+
+
+.logo img {
+	width: 90px;
+}
+
+.bar {
+	display: none;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 60px;
+	margin-bottom: 80px;
+	padding: 0 7vw;
+	background-color: rgb(248, 232, 217);
+	border-bottom: 2px solid rgb(252, 196, 124);
+	box-shadow: 0 2px 20px rgb(253, 124, 124);
+}
+
+.header ul {
+	display: flex;
+	align-items: center;
+}
+
+.header ul li:hover {
+	color: rgb(253, 57, 8);
+}
+
+.header ul li {
+	padding: 0 15px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.account {
+	flex: 0.1;
+}
+
+.account ul {
+	display: flex;
+	justify-content: end;
+}
+
+.account ul li {
+	padding: 0 15px;
+	font-size: 18px;
+}
+
+.header,
+.bar i:hover {
+	color: rgb(253, 57, 8);
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+    color: rgb(248, 232, 217);
+    letter-spacing: 1px;
+	
+    background-color: #f8e8d9; /* Adjusted background color */
+}
+
+/* Set the background color for the reservation section */
+.reservation {
+    width: 100%;
+    height: 285vh;
+	
+    padding: 75px 0;
+    background: #f8e8d9; /* Adjusted background color */
+}
+
+.container {
+	background-color: rgb(248, 232, 217);
+	max-width: 950px;
+	margin: 0px auto;
+	box-shadow: 10px 15px 20px wheat;
+	display: flex;
+	border-radius: 10px;
+	
+}
+
+.container-time {
+	background-color: rgba(0, 0, 0, .95);
+	padding: 55px;
+	outline: 3px dashed #998100;
+	outline-offset: -30px;
+	text-align: center;
+	border-radius: 10px;
+}
+
+.heading {
+	font-size: 35px;
+	text-transform: uppercase;
+}
+
+.heading-days {
+	color:orangered;
+	font-size: 30px;
+
+}
+
+.heading-phone {
+	font-size: 20px;
+}
+
+.container-form {
+	padding: 20px 0;
+	margin: 0 auto;
+	color: orangered;
+}
+
+.container-time {
+    color: white;
+}
+
+.container-time .heading,
+.container-time
+{
+	color: white;
+}
+
+.heading-days{
+	color: orangered;
+	margin-top: 50px;
+}
+
+.container-time p {
+	color: #f8e8d9;
+	margin-top: 20px;
+}
+
+.container-time .heading-phone{
+	color: #f8e8d9;
+	margin-top: 20px;
+
+}
+
+.container-time hr{
+	color: #f8e8d9;
+	margin-top: 30px;
+}
+
+
+
+/* Style for the heading with class 'heading-yellow' */
+.heading.heading-yellow {
+    color: orangered; /* Set the text color to yellow */
+    /* Add any additional styling as needed */
+}
+
+/* Style for the span element within the heading with class 'heading-yellow' */
+.heading.heading-yellow span {
+    color: black; /* Set the text color to white */
+    /* Add any additional styling for the span element */
+}
+
+
+.container-form span {
+	padding: 20px 0;
+	margin: 0 auto;
+	color: black;
+}
+
+form {
+	display: grid;
+	grid-row-gap: 20px;
+}
+
+form p {
+	font-weight: 600;
+}
+
+.form-field {
+    margin-bottom: 20px;
+	
+}
+
+.form-field p {
+    margin: 0;
+    color: black; /* Text color set to yellow */
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid orangered; /* Border color set to yellow */
+    border-radius: 5px; /* Border radius set to 5px */
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+/* Style for select dropdown arrow */
+.form-field select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('path-to-arrow-image') no-repeat right center; /* Replace 'path-to-arrow-image' with your arrow image path */
+    background-size: 16px; /* Set the size of the arrow image */
+}
+
+
+input,select {
+	pad: 10px 15px;
+	margin-top: 3px;
+}
+
+.btn {
+	background-color: orangered;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	font-size: 18px;
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	-ms-border-radius: 100px;
+	-o-border-radius: 100px;
+	box-shadow: 7px 10px 12px rgba(0, 0, 0, .1);
+	cursor: pointer;
+	transition: all .3s;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+	-ms-transition: all .3s;
+	-o-transition: all .3s;
+}
+
+.btn:hover {
+	transform: scale(1.03);
+	-webkit-transform: scale(1.03);
+	-moz-transform: scale(1.03);
+	-ms-transform: scale(1.03);
+	-o-transform: scale(1.03);
+	box-shadow: 10px 12px 15px wheat;
+}
+
+.cross-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    color: #000; /* Adjust the color as needed */
+    text-decoration: none;
+    /* Set initial border to transparent */
+    padding: 5px; /* Add padding for better visual */
+    transition: border 0.3s, transform 0.3s; /* Add transition for smooth effect */
+}
+
+.cross-button:hover {
+    color: #ff0000; /* Change color on hover */
+ /* Add border color on hover */
+    transform: scale(1.1); /* Add scale effect on hover */
+}
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .container-form {
+        padding: 10px;
+    }
+
+    .heading-phone {
+        font-size: 17px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 880px) {
+    .container-time {
+        padding: 30px;
+    }
+
+    .container-form {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .header .nav,
+    .header .account {
+        display: none;
+    }
+
+    .search {
+        width: 60vw;
+    }
+
+    .bar {
+        display: block;
+        cursor: pointer;
+    }
+
+    .headerbar {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        bottom: 0;
+        right: -100%;
+        transition: all 0.5s;
+        background-color: rgb(248, 231, 216);
+    }
+
+    .headerbar .account,
+    .headerbar .nav {
+        display: block;
+        font-size: 18px;
+    }
+
+    .bar .fa-xmark {
+        display: none;
+        top: 20px;
+        right: 5vw; /* Corrected the typo from 5w to 5vw */
+        position: absolute;
+        font-size: 25px;
+    }
+
+    .headerbar .nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .headerbar .nav li {
+        width: 96vw;
+        margin: 10px 0;
+        padding: 15px 30px;
+        box-shadow: 0 2px 15px rgb(252, 193, 169);
+        font-size: 20px;
+        margin-top: 5px;
+    }
+
+    .headerbar .account {
+        line-height: 40px;
+        margin-top: 60px;
+        background-color: rgb(252, 210, 182);
+        padding: 15px;
+    }
+
+    .headerbar .account ul {
+        justify-content: space-between;
+    }
+
+    .foodimg {
+        flex: 1;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .foodimg img {
+        width: 70vw;
+    }
+}

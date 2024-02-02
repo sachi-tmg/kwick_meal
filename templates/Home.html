@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{%static 'css/Home.css'%}"> 
+    <link rel="shortcut icon" href="./image/Logo.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/7a4b62b0a4.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kwickMeal | Home </title>
+  
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="headerbar">
+                <div class="account">
+                    <ul>
+                        <a href="#">
+                            <li>
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </li>
+                        </a>
+
+                        <form action="{% url 'signup' %}" method="get">
+                            <button type="submit" class="user-button">
+                                <li>
+                                    <i class="fa-solid fa-user"></i>
+                                </li>
+                            </button>
+                        </form>
+
+                    </ul>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <a href="{% url 'home' %}">
+                            <li>Home</li>
+                        </a>
+                        <a href="{% url 'menu' %}">
+                            <li>Menu</li>
+                        </a>
+                        <a href="{% url 'home' %}#footer">
+                            <li>Contact</li>
+                        </a>
+                        <a href="{% url 'about' %}">
+                            <li>About Us</li>
+                        </a>
+                        <a href="{% url 'blog' %}">
+                            <li>Blog</li>
+                        </a>
+                        <a href="{% url 'reservation' %}">
+                            <li>Reservation</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="logo">
+                {% load static %}
+                <img src="{% static 'images/logo1.png' %}" alt="Logo" style="width: 50px; height: auto;">
+            </div>
+            <div class="bar">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark" id="hdcross"></i>
+            </div>
+            <div class="nav">
+                <ul>
+                    <a href="{% url 'home' %}">
+                        <li>Home</li>
+                    </a>
+                    <a href="{% url 'menu' %}">
+                        <li>Menu</li>
+                    </a>
+                    <a href="{% url 'home' %}#footer">
+                        <li>Contact</li>
+                    </a>
+                    <a href="{% url 'about' %}">
+                        <li>About Us</li>
+                    </a>
+                    <a href="{% url 'blog' %}">
+                        <li>Blog</li>
+                    </a>
+                    <a href="{% url 'reservation' %}">
+                        <li>Reservation</li>
+                    </a>
+
+                </ul>
+            </div>
+            <div class="account">
+                <ul>
+                    <a href="{% url 'cart' %}">
+                        <li>
+                            <i class="fa-solid fa-shopping-basket">
+                            </i>
+                        </li>
+                    </a>
+                    {% comment %} <form action="{% url 'signup' %}" method="get">
+                        <button type="submit" class="user-button">Register</button>
+                    </form> {% endcomment %}
+
+                    <form id="logout-form" action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="button" class="logout-button" onclick="confirmLogout()">
+                            <li>
+                                <i class="fa-solid fa-sign-out"></i>
+                            </li>
+                        </button>
+                    </form>
+
+
+
+
+                </ul>
+            </div>
+        </div>
+
+    </header>
+   
+
+    <div class="home">
+        <div class="main_slide">
+            <div>
+                <h1>Enjoy Delicious<span> Nepali Cousin</span> in Your Life</h1>
+                <p>Indulge in the vibrant flavors of Nepal at our restaurant! Discover traditional staples like rice and
+                    dal, savor aromatic curries such as gundruk and momos, and experience the richness of Nepali spices.
+                    Immerse yourself in the heart of Nepali cuisine, where each dish tells a story of culture and taste
+                </p>
+                <button class="red_btn" onclick="redirectToMenu()">Visit Now <i class="fa-solid fa-arrow-right-long"></i></button>
+
+<script>
+    function redirectToMenu() {
+        // Redirect the user to the menu page
+        window.location.href = "{% url 'about' %}"; // Replace with the actual URL of your menu page
+    }
+</script>
+
+            </div>
+            <div>
+                {% load static %}
+                <img src="{% static 'images/gallary_3.webp' %}" alt="" style="width: 600px; height: auto;">
+            </div>
+        </div>
+        <div class="food-items">
+            <div class="item">
+                <div>
+                    <img src={% static 'images/Nepal5.webp' %} alt="food item">
+                </div>
+                <h3>Momo</h3>
+                <p>"Veg momo" is made of dumplings packed with a variety of
+                    finely chopped vegetables, including cabbage, carrots, and occasionally green beans or tofu.
+                </p>
+                <button class="white_btn" onclick="redirectToMenu()"> See Menu </button>
+            </div>
+            <div class="item">
+                <div>
+                    <img src={% static 'images/Nepal7.jpg' %} alt="food item">
+                </div>
+                <h3>Sel</h3>
+                <p>"Veg momo" is made of dumplings packed with a variety of
+                    finely chopped vegetables, including cabbage, carrots, and occasionally green beans or tofu.
+                </p>
+                <button class="red_btn" onclick="redirectToMenu()"> See Menu </button>
+            </div>
+            <div class="item">
+                <div>
+                    <img src={% static 'images/Nepal8.jpg' %} alt="food item">
+                </div>
+                <h3>Chatpate</h3>
+                <p>"Veg momo" is made of dumplings packed with a variety of
+                    finely chopped vegetables, including cabbage, carrots, and occasionally green beans or tofu.
+                </p>
+                <button class="white_btn" onclick="redirectToMenu()"> See Menu </button>
+            </div>
+        </div>
+        <div class="main_slide2">
+            <div class="foodimg">
+                <img src={% static 'images/main_img.png' %} alt="">
+            </div>
+            <div class="question">
+                <div>
+                    <h2>Why People Choose Us?</h2>
+                </div>
+                <div class="q-ans">
+                    <div>
+                        <img src='media/bacon_burger.jpg' alt="">
+                    </div>
+                    <div>
+                        <h4>Choose your favourite</h4>
+                        <p>The bacon burger, a savory delight that combines the rich, smoky flavor of crispy bacon with the juicy goodness of a perfectly grilled burger patty. This culinary masterpiece tantalizes the taste buds with a harmonious blend of textures and tastes.</p>
+                    </div>
+                </div>
+                <div class="q-ans">
+                    <div>
+                        <img src='media/sandwich.jpg' alt="">
+                    </div>
+                    <div>
+                        <h4>Choose your favourite</h4>
+                        <p> A sandwich, a timeless culinary creation that brings together various flavors, textures, and ingredients between two slices of bread.</p>
+                    </div>
+                </div>
+                <div class="q-ans">
+                    <div>
+                        <img src='media/paratha.webp' alt="">
+                    </div>
+                    <div>
+                        <h4>Choose your favourite</h4>
+                        <p> Paratha, a popular and versatile unleavened flatbread, holds a special place in the heart of South Asian cuisine.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_slide3">
+            <div class="fav-head">
+                <h3> Our Popular Food Items </h3>
+                <p> Our popular food items are shown given below.</p>
+            </div>
+            <div class="fav-food">
+                <div class="item">
+                    <div>
+                        <img src= 'media/bacon_burger.jpg'  alt="">
+                    </div>
+                    <h3>Burger</h3>
+                    <p>The bacon burger, a savory delight that combines the rich, smoky flavor of crispy bacon with the juicy goodness of a perfectly grilled burger patty. This culinary masterpiece tantalizes the taste buds with a harmonious blend of textures and tastes. </p>
+                    <p class="fav-price">Rs.1400</p>
+                </div>
+                <div class="item">
+                    <div>
+                        <img src='media/sandwich.jpg' alt="">
+                    </div>
+                    <h3>Sandwich </h3>
+                    <p>
+                        A sandwich, a timeless culinary creation that brings together various flavors, textures, and ingredients between two slices of bread. </p>
+                    <p class="fav-price">Rs.600</p>
+                </div>
+                <div class="item">
+                    <div>
+                        <img src='media/paratha.webp' alt="">
+                    </div>
+                    <h3>Paratha</h3>
+                    <p>
+                        Paratha, a popular and versatile unleavened flatbread, holds a special place in the heart of South Asian cuisine. </p>
+                    <p class="fav-price">Rs.200</p>
+                </div>
+                <div class="item">
+                    <div>
+                        <img src='media/thakali.jpg' alt="">
+                    </div>
+                    <h3>Thakali</h3>
+                    <p>"Thakali khana" refers to the traditional cuisine of the Thakali people, an ethnic group from the Mustang region of Nepal. Thakali cuisine is known for its unique flavors and use of local ingredients</p>
+                    <p class="fav-price">Rs.1500</p>
+                </div>
+                <div class="item">
+                    <div>
+                        <img src='media/dessert.jpg' alt="">
+                    </div>
+                    <h3>Dessert</h3>
+                    <p>"Dessert" refers to the sweet course that concludes a meal. Desserts come in a wide variety, catering to diverse preferences and cultural influences.</p>
+                    <p class="fav-price">Rs.1400</p>
+                </div>
+            </div>
+            <div class="dsgn"></div>
+        </div>
+        <div class="main_slide4">
+            <div class="chef-feed">
+                <h2>Customer <span style="color: red;">Feedback</span></h2>
+                <p>My recent dining experience at KwickMeal was delightful from beginning to end, I must
+                    say. The setting was warm and welcoming, the service was flawless, and above all, the food was
+                    delicious.The menu showcases the rich flavors of Nepali cuisine with a variety of dishes.
+                    Discovering new treats and classic favorites was enjoyable. The food fared better than I had
+                    imagined. The flavors were genuine and unforgettable, and each dish was lovingly made with fresh
+                    ingredients. The atmosphere of the restaurant is friendly and cozy. It successfully blends
+                    contemporary design with a hint of Nepali culture.
+
+                </p>
+                <div class="chef-detail">
+                    <div>
+                        <img src={%static 'images/chefffy.png' %} alt="">
+                    </div>
+                    <div>
+                        <h6>Shishir Bhai</h6>
+                        <p>Food Expert</p>
+                    </div>
+                </div>
+                <div class="chef-vic">
+                    <div>
+                        <i class="fa-solid fa-hand-peace"></i>
+                        <h4>1000</h4>
+                        <p>Liked By.</p>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-trophy"></i>
+                        <h4>5</h4>
+                        <p>Achievement.</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="chef">
+                <img src={%static 'images/chefffy.png' %} alt="" style="width: 350px; height: auto;">
+            </div>
+
+        </div>
+        <footer id="footer">
+            <div class="footer_container container">
+                <div class="footer_logo">
+                    <img src="{% static 'images/logo1.png' %}" alt="Logo" style="width: 100px; height: auto;">
+                </div>
+                <div class="link_lists">
+                    <h3>Main Links</h3>
+                    <ul>
+                        <li>Order Tracking</li>
+                        <li>New Order</li>
+                        <li>Contact Us</li>
+                        <li>News & Blogs</li>
+                    </ul>
+                </div>
+                <div class="link_lists">
+                    <h3>Support</h3>
+                    <ul>
+                        <li>About Us</li>
+                        <li>Privacy Policy</li>
+                        <li>Terms & Conditons</li>
+                    </ul>
+                </div>
+                <div class="news_letter">
+                    <h3>Follow Us</h3>
+                    <div class="icon_container">
+                        <div class="icon">
+                            <i class="fa fa-facebook"></i>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        const bar = document.querySelector('.fa-bars');
+        const cross = document.querySelector('#hdcross');
+        const headerbar = document.querySelector('.headerbar');
+
+        bar.addEventListener('click', function () {
+            setTimeout(() => {
+                cross.style.display = 'block';
+            }, 200);
+            headerbar.style.right = '0%';
+        })
+
+        cross.addEventListener('click', function () {
+            cross.style.display = 'none';
+            headerbar.style.right = '-100%';
+        })
+
+        function redirectToMenu() {
+            // Change the window location to the menu.html when the button is clicked
+            window.location.href = "menu.html";
+        }
+    </script>
+    <script>
+        function confirmLogout() {
+            var confirmation = confirm("Are you sure you want to logout?");
+            if (confirmation) {
+                document.getElementById('logout-form').submit();
+                // You can also redirect to the login page using window.location.href
+                // window.location.href = "{% url 'login' %}";
+            }
+            // If the user clicks cancel, do nothing
+        }
+    </script>
+</body>
+
+</html>

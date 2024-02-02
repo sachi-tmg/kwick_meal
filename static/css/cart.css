@@ -1,0 +1,116 @@
+body {
+  text-align: center;
+  background-color: #f8e8d9; /* Updated background color */
+}
+
+.container {
+  width: 50%;
+  margin: auto;
+  text-align: left;
+  margin-top: 50px;
+  font-size: 20px;
+  background-color: rgb(248, 231, 217); /* Added background color for the container */
+  padding: 20px; /* Added padding for better spacing */
+}
+
+/* Rest of your existing CSS remains unchanged */
+
+
+    .container span{
+      color:rgb(253, 77, 8);
+      font-size:20px;
+    }
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 100px; /* Adjusted margin-top */
+    }
+
+    td, th {
+      border: 1px solid rgb(250, 120, 69);
+      text-align: left;
+      padding: 8px;
+      font-size:20px;
+      color: black;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    .button-container button {
+      background-color: rgb(252, 196, 124);
+      border: 1px solid white;
+      color: black;
+      padding: 2px 10px;
+      cursor: pointer;
+      align-items: center;
+    }
+
+    .button-container button:hover {
+      background-color: #ffa500;
+      
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      background-color: rgb(253, 77, 8);
+      border:none;
+      color: white;
+      border-radius: 15px;
+      box-shadow:0 10px 15px rgb(250, 120, 69);
+      padding: 15px 20px;
+      font-size: 20px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+
+.close-button:hover {
+  background-color: white;
+  color:rgb(253, 77, 8);
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+}
+
+    .footer-text {
+      margin-top: 50px;
+      color: #333;
+      text-align: center;
+      font-size:25px;
+    }
+
+    .footer-text span{
+      color:rgb(253, 77, 8);
+      font-size:25px;
+    }
+
+#payment-button:hover {
+  box-shadow: 10px 20px 18px rgba(0, 0, 0, 0.5); 
+}
+
+#payment-button {
+  transition: box-shadow 0.4s ease-in-out;
+  border-radius: 20px;
+  width: 150px;
+  height: 140px;
+  cursor: pointer;
+  margin-top: 50px;
+  border: 4px;
+   
+}
+
+.close-button-container {
+      position: absolute;
+      top: 10px; /* Adjust the top position as needed */
+      right: 10px; /* Adjust the right position as needed */
+    }
+
+.cross-button:hover {
+    color: #ff0000; /* Change color on hover */
+ /* Add border color on hover */
+    transform: scale(1.1); /* Add scale effect on hover */
+}

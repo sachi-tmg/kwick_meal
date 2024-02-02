@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{%load static %}
+<html>
+<head>
+  <link rel="stylesheet" href="{%static 'css/cart.css'%}"> 
+</head>
+<body>
+
+<div class="container">
+  <a class="close-button" href="{% url 'menu' %}">Back to Menu</a>
+
+
+  <!-- Display Customer Name above the table -->
+  <td> <span> Customer Name </span>: {{ filtered_orders.first.customer.customer_name }}</td>
+
+  <table>
+    <tr>
+      <th>Food Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+
+    {% for order in filtered_orders %}
+    <tr>
+      <td>{{ order.food.name }}</td>
+      <td class="button-container">
+        <button onclick="updateQuantity('{{ order.id }}', -1)">-</button>
+        <span class="quantity" id="quantity_{{ order.id }}">{{ order.quantity }}</span>
+        <button onclick="updateQuantity('{{ order.id }}', 1)">+</button>
+      </td>
+      <td class="price">{{ order.total }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <td colspan="3" style="text-align: right;">Total: <span id="total">{{ total_price }}</span></td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="khaltilogo">
+    <img class="khalti" id="payment-button" src='/static/images/khaltii.png' alt="Pay with Khalti">
+  </div>
+
+  <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
+  <script>
+    function updateQuantity(orderId, change) {
+      var quantityElement = document.getElementById('quantity_' + orderId);
+      var currentQuantity = parseInt(quantityElement.innerHTML);
+      var newQuantity = currentQuantity + change;
+
+      if (newQuantity >= 0) {
+        quantityElement.innerHTML = newQuantity;
+        updateTotal();
+      }
+    }
+
+    function updateTotal() {
+      var totalElement = document.getElementById('total');
+      var total = 0;
+
+      var quantityElements = document.querySelectorAll('.quantity');
+      var priceElements = document.querySelectorAll('.price');
+
+      for (var i = 0; i < quantityElements.length; i++) {
+        var quantity = parseInt(quantityElements[i].innerHTML);
+        var price = parseFloat(priceElements[i].innerHTML);
+        total += quantity * price;
+      }
+
+      totalElement.innerHTML = total.toFixed(2);
+    }
+  </script>
+  <script>
+    function verifypayment(payload){
+      $.ajax({
+        url: "{%url 'verify_payment' %}",
+        type: "POST",
+        data: payload,
+        dataType: 'json',
+        success: function(response){alert(response)},
+        error: function (error){alert(error.responseJSON['message'])}
+
+      });
+    }
+    var config = {
+        // replace the publicKey with yours
+        "publicKey": "test_public_key_d0b720e47bdc44caa45f48cfd302a9bc",
+        "productIdentity": "1234567890",
+        "productName": "KwickMeal",
+        "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+        "paymentPreference": [
+            "KHALTI",
+            "EBANKING",
+            "MOBILE_BANKING",
+            "CONNECT_IPS",
+            "SCT",
+            ],
+        "eventHandler": {
+            onSuccess (payload) {
+                // hit merchant api for initiating verfication
+                console.log(payload);
+                alert('Payment successful! Thank you for purchasing.');
+            },
+            onError (error) {
+                console.log(error);
+            },
+            onClose () {
+                console.log('widget is closing');
+            }
+        }
+    };
+
+    var checkout = new KhaltiCheckout(config);
+    var btn = document.getElementById("payment-button");
+    btn.onclick = function () {
+        // minimum transaction amount must be 10, i.e 1000 in paisa.
+        checkout.show({amount: {{ total_price }} });
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Booking</title>
+	<link rel="stylesheet" href="css/style.css">
+	<!-- Font -->
+	<link rel="stylesheet" href="{%static 'css/reservation.css'%}"> 
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,900" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<header>
+        <div class="header">
+            <div class="headerbar">
+                <div class="account">
+                    <ul>
+                        <a href="#">
+                            <li>
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </li>
+                        </a>
+
+                        <form action="{% url 'signup' %}" method="get">
+                            <button type="submit" class="user-button">
+                                <li>
+                                    <i class="fa-solid fa-user"></i>
+                                </li>
+                            </button>
+                        </form>
+
+                    </ul>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <a href="{% url 'home' %}">
+                            <li>Home</li>
+                        </a>
+                        <a href="{% url 'menu' %}">
+                            <li>Menu</li>
+                        </a>
+                        <a href="{% url 'home' %}#footer">
+                            <li>Contact</li>
+                        </a>
+                        <a href="{% url 'about' %}">
+                            <li>About Us</li>
+                        </a>
+                        <a href="{% url 'blog' %}">
+                            <li>Blog</li>
+                        </a>
+                        <a href="{% url 'reservation' %}">
+                            <li>Reservation</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="logo">
+                {% load static %}
+                <img src="{% static 'images/logo1.png' %}" alt="Logo" style="width: 50px; height: auto;">
+            </div>
+            <div class="bar">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark" id="hdcross"></i>
+            </div>
+            <div class="nav">
+                <ul>
+                    <a href="{% url 'home' %}">
+                        <li>Home</li>
+                    </a>
+                    <a href="{% url 'menu' %}">
+                        <li>Menu</li>
+                    </a>
+                    <a href="{% url 'home' %}#footer">
+                        <li>Contact</li>
+                    </a>
+                    <a href="{% url 'about' %}">
+                        <li>About Us</li>
+                    </a>
+                    <a href="{% url 'blog' %}">
+                        <li>Blog</li>
+                    </a>
+                    <a href="{% url 'reservation' %}">
+                        <li>Reservation</li>
+                    </a>
+
+                </ul>
+            </div>
+            <div class="account">
+                <ul>
+                    <a href="{% url 'cart' %}">
+                        <li>
+                            <i class="fa-solid fa-shopping-basket">
+                            </i>
+                        </li>
+                    </a>
+                    {% comment %} <form action="{% url 'signup' %}" method="get">
+                        <button type="submit" class="user-button">Register</button>
+                    </form> {% endcomment %}
+
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+<div class="wrapper">
+
+
+	<div class="container">
+		<div class="container-time">
+
+
+				<h2 class="heading">
+					Time Open
+				</h2>
+
+
+				<h3 class="heading-days">
+					Monday - Friday
+				</h3>
+
+
+				<p> 7AM - 11AM (BreakFast)</p>
+				<p> 11AM - 10PM (Lunch/Dinner)</p>
+
+				<h3 class="heading-days">
+					Saturday - Sunday
+				</h3>
+
+
+				<p> 9AM - 1PM (BreakFast)</p>
+				<p> 1AM - 10PM (Lunch/Dinner)</p>
+
+				<hr>
+
+				<h4 class="heading-phone">
+					Call Us: +977 9889 4567 32
+				</h4>
+
+		</div>
+
+		<div class="container-form">
+			<form action="{% url 'reservation' %}" method="post">
+				{% csrf_token %}
+					<h2 class="heading heading-yellow"> <span>Table</span> Reservation </h2>
+
+					<div class="form-field">
+						<p> Name : </p>
+						<input type="text" name="fname" placeholder="Full Name">
+					</div>
+
+
+					<div class="form-field">
+						<p> Email :</p>
+						<input type="email" name="email" placeholder="Email">
+					</div>
+
+
+					<div class="form-field">
+						<p> Date For Reservation :</p>
+						<input type="date" name="date">
+					</div>
+
+
+					<div class="form-field">
+						<p> Time :</p>
+						<input type="time" name="time">
+					</div>
+
+
+					<div class="form-field">
+						<p> Number of Guest :</p>
+						<select id="#" name="number_of_guest">
+							<option value="1">1 Guest</option>
+							<option value="2">2 Guests</option>
+							<option value="3">3 Guests</option>
+							<option value="4">4 Guests</option>
+							<option value="5">5 Guests</option>
+						</select>
+					</div>
+					{% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                                <div class="{% if message.tags %}alert alert-{{ message.tags }}{% endif %} custom-error-message">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+					<button class="btn">Submit</button>
+				</form>
+
+		</div>
+
+	</div>
+	
+</div>	
+	
+</body>
+</html>

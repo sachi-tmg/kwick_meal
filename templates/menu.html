@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+{%load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{%static 'css/menu.css'%}"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kwickMeal | Menu</title>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="headerbar">
+                <div class="account">
+                    <ul>
+                        <a href="#">
+                            <li>
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </li>
+                        </a>
+
+                        <form action="{% url 'signup' %}" method="get">
+                            <button type="submit" class="user-button">
+                                <li>
+                                    <i class="fa-solid fa-user"></i>
+                                </li>
+                            </button>
+                        </form>
+                    </ul>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <a href="{% url 'home' %}">
+                            <li>Home</li>
+                        </a>
+                        <a href="{% url 'menu' %}">
+                            <li>Menu</li>
+                        </a>
+                        <a href="{% url 'home' %}#footer">
+                            <li>Contact</li>
+                        </a>
+                        <a href="{% url 'about' %}">
+                            <li>About Us</li>
+                        </a>
+                        <a href="{% url 'home' %}#blog">
+                            <li>Blog</li>
+                        </a>
+                        <a href="{% url 'reservation' %}">
+                            <li>Reservation</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="logo">
+                {% load static %}
+                <img src="{% static 'images/logo.png' %}" alt="Logo" style="width: 50px; height: auto;">
+            </div>
+            <div class="bar">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark" id="hdcross"></i>
+            </div>
+            <div class="nav">
+                <ul>
+                    <a href="{% url 'home' %}">
+                        <li>Home</li>
+                    </a>
+                    <a href="{% url 'menu' %}">
+                        <li>Menu</li>
+                    </a>
+                    <a href="{% url 'home' %}#footer">
+                        <li>Contact</li>
+                    </a>
+                    <a href="{% url 'about' %}">
+                        <li>About Us</li>
+                    </a>
+                    <a href="{% url 'home' %}#blog" >
+                        <li>Blog</li>
+                    </a>
+                    <a href="{% url 'reservation' %}">
+                        <li>Reservation</li>
+                    </a>
+
+                </ul>
+            </div>
+            <div class="account">
+                <ul>
+                    <a href="{% url 'cart' %}">
+                        <li>
+                            <i class="fa-solid fa-shopping-basket">
+                            </i>
+                        </li>
+                    </a>
+
+                    {% comment %} <form action="{% url 'signup' %}" method="get">
+                        <button type="submit" class="user-button">Register</button>
+                    </form> {% endcomment %}
+
+
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    
+      
+
+
+    <div class="menu">
+        <div class="dropdown">
+            <button class="dropbtn" id="dropbtn">Food List</button>
+
+            <div class="dropdown-content">
+            {% for food in food_list %}
+                <a href="{%url 'filter_food' food.id %}" onclick="showMenu('burger')">{{food.name}}</a>
+            {% endfor %}
+
+    
+    
+            </div>
+          </div>
+        <h1>Our<span>Menu</span></h1>
+        <div class="menu_box" id="menuBox">
+            {% for food in food_item %}
+                <div class="menu_card" data-category="food">
+                    <div class="menu_img">
+                        <img src="{{ food.picture.url }}" alt="{{ food.name }} Image">
+                    </div>
+                    <div class="menu_text">
+                        <h2>{{ food.name }}</h2>
+                        <p1>Price: ${{ food.price }}</p1>
+                        <p>{{ food.description }}</p>
+                        <form
+                            method="POST"
+                            action="{% url 'order' food.id %}"
+                            onsubmit="return submitForm(this);"
+                        >
+                            {% csrf_token %}
+                            <div class="quantity_box">
+                                <label for="quantity{{ food.id }}">Quantity:</label>
+                                <input type="number" id="quantity{{ food.id }}" name="quantity" value="1" min="1">
+                            </div>
+                            <button type="submit" class="menu_btn">
+                                <i class="fa-solid fa-burger"></i>Order Now
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Add this script at the end of your HTML body -->
+        <script>
+            function submitForm(form) {
+                // Perform any additional logic here if needed
+                // For now, let's just show a message box
+                alert('Food added to cart!'); // You can replace this with a more sophisticated UI element
+        
+                // If you want to prevent the default form submission, return false
+                return true;
+            }
+        </script>
+        
+        
+        </div>
+        
+    
+        
+        
+        <script>
+            function showMenu(category) {
+                var menuCards = document.querySelectorAll('.menu_card');
+                menuCards.forEach(function (card) {
+                    if (card.dataset.category === category || category === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        </script>
+    </div>
+
+</div>
+
+    </div>
+    <script>
+        const bar = document.querySelector('.fa-bars');
+        const cross = document.querySelector('#hdcross');
+        const headerbar = document.querySelector('.headerbar');
+
+        bar.addEventListener('click', function () {
+            setTimeout(() => {
+                cross.style.display = 'block';
+            }, 200);
+            headerbar.style.right = '0%';
+        })
+
+        cross.addEventListener('click', function () {
+            cross.style.display = 'none';
+            headerbar.style.right = '-100%';
+        })
+
+        function redirectToMenu() {
+            // Change the window location to the menu.html when the button is clicked
+            window.location.href = "menu.html";
+        }
+        window.addEventListener('resize', function () {
+            // Add your logic here if needed
+        });
+    </script>
+    <script>
+        let lastScrollPosition = window.pageYOffset;
+      
+        window.onscroll = function() {
+          const currentScrollPosition = window.pageYOffset;
+      
+          if (lastScrollPosition > currentScrollPosition) {
+            // Scrolling up, show the dropbtn
+            document.getElementById("dropbtn").style.display = "block";
+          } else {
+            // Scrolling down, hide the dropbtn
+            document.getElementById("dropbtn").style.display = "none";
+          }
+      
+          lastScrollPosition = currentScrollPosition;
+        };
+      </script>
+      
+</body>
+
+</html>

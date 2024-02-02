@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+{%load static %}
+<link rel="stylesheet" href="{%static 'css/blog.css'%}"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="short icon" href="image/short_icon.png">
+<div class="blog">
+    
+    <header>
+        <div class="header">
+            <div class="headerbar">
+                <div class="account">
+                    <ul>
+                        <a href="#">
+                            <li>
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </li>
+                        </a>
+
+                        <form action="{% url 'signup' %}" method="get">
+                            <button type="submit" class="user-button">
+                                <li>
+                                    <i class="fa-solid fa-user"></i>
+                                </li>
+                            </button>
+                        </form>
+
+                    </ul>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <a href="{% url 'home' %}">
+                            <li>Home</li>
+                        </a>
+                        <a href="{% url 'menu' %}">
+                            <li>Menu</li>
+                        </a>
+                        <a href="{% url 'home' %}#footer">
+                            <li>Contact</li>
+                        </a>
+                        <a href="{% url 'about' %}">
+                            <li>About Us</li>
+                        </a>
+                        <a href="{% url 'blog' %}">
+                            <li>Blog</li>
+                        </a>
+                        <a href="{% url 'reservation' %}">
+                            <li>Reservation</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="logo">
+                {% load static %}
+                <img src="{% static 'images/logo1.png' %}" alt="Logo" style="width: 50px; height: auto;">
+            </div>
+            <div class="bar">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark" id="hdcross"></i>
+            </div>
+            <div class="nav">
+                <ul>
+                    <a href="{% url 'home' %}">
+                        <li>Home</li>
+                    </a>
+                    <a href="{% url 'menu' %}">
+                        <li>Menu</li>
+                    </a>
+                    <a href="{% url 'home' %}#footer">
+                        <li>Contact</li>
+                    </a>
+                    <a href="{% url 'about' %}">
+                        <li>About Us</li>
+                    </a>
+                    <a href="{% url 'blog' %}">
+                        <li>Blog</li>
+                    </a>
+                    <a href="{% url 'reservation' %}">
+                        <li>Reservation</li>
+                    </a>
+
+                </ul>
+            </div>
+            <div class="account">
+                <ul>
+                    <a href="{% url 'cart' %}">
+                        <li>
+                            <i class="fa-solid fa-shopping-basket">
+                            </i>
+                        </li>
+                    </a>
+                    {% comment %} <form action="{% url 'signup' %}" method="get">
+                        <button type="submit" class="user-button">Register</button>
+                    </form> {% endcomment %}
+
+                   
+
+
+
+
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <h1>Our<span>Blog</span></h1>
+
+    <div class="blog_box">
+
+        <div class="blog_card">
+
+            <div class="blog_img">
+                <img src={% static 'images/Nepal5.webp' %} alt="food item">
+
+            </div>
+
+            <div class="blog_tag">
+
+                <div class="blog_date">
+                    <p>18 May 2022<i class="fa-solid fa-calendar-days"></i></p>
+                </div>
+
+                <h3 class="blog_heading">
+                    Do Not Leave toko before Eating this remen
+                </h3>
+
+                <p class="blog_text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Eos rerum commodi fugiat eum assumenda vel cumque eaque 
+                    totam doloribus.
+                </p>
+
+                <hr>
+
+                <div class="view_and_like">
+
+                    <div class="view">
+                        <p>15.3K Views</p>
+                        <p class="b_comm">786 comments</p>
+                    </div>
+
+                    <div class="like">
+                        <p>3K</p>
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="blog_card">
+
+            <div class="blog_img">
+                <img src={% static 'images/Nepal5.webp' %} alt="food item">
+                
+            </div>
+
+            <div class="blog_tag">
+
+                <div class="blog_date">
+                    <p>18 May 2022<i class="fa-solid fa-calendar-days"></i></p>
+                </div>
+
+                <h3 class="blog_heading">
+                    Do Not Leave toko before Eating this remen
+                </h3>
+
+                <p class="blog_text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Eos rerum commodi fugiat eum assumenda vel cumque eaque 
+                    totam doloribus.
+                </p>
+
+                <hr>
+
+                <div class="view_and_like">
+
+                    <div class="view">
+                        <p>15.3K Views</p>
+                        <p class="b_comm">786 comments</p>
+                    </div>
+
+                    <div class="like">
+                        <p>3K</p>
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="blog_card">
+
+            <div class="blog_img">
+                <img src={% static 'images/Nepal5.webp' %} alt="food item">
+                
+            </div>
+
+            <div class="blog_tag">
+
+                <div class="blog_date">
+                    <p>18 May 2022<i class="fa-solid fa-calendar-days"></i></p>
+                </div>
+
+                <h3 class="blog_heading">
+                    Do Not Leave toko before Eating this remen
+                </h3>
+
+                <p class="blog_text">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                    Eos rerum commodi fugiat eum assumenda vel cumque eaque 
+                    totam doloribus.
+                </p>
+
+                <hr>
+
+                <div class="view_and_like">
+
+                    <div class="view">
+                        <p>15.3K Views</p>
+                        <p class="b_comm">786 comments</p>
+                    </div>
+
+                    <div class="like">
+                        <p>3K</p>
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
